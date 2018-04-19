@@ -1,0 +1,78 @@
+div{
+    /*  将 nature-count等定义在div中，是因为CSS的计数器是有作用域的
+    **  一个计数器的作用域只在对其产生影响的最外层元素的父元素的内部有效
+    **  而li在ul元素中，但是p元素和ul元素同属一个父元素
+    **  所以将nature-count等定义在其公共父元素中，扩大css的定义域中
+    */
+    counter-reset: nature-count nonprime-count prime-count;
+    position: relative;
+}
+ul{
+    /*  为了让p元素能--显示--在ul元素上方，但是本身位于ul下方教程中使用flex布局
+    **  这里我用定位解决
+    **  p元素必须位于下方的原因是：p的伪元素选择器需要用到CSS计数器，在ul的上方的
+    **  话，此时CSS计数器还没开始计数，所有数都为0
+    */
+    position: absolute;
+    top: 50px;
+    width: 85%;
+}
+li{
+    color: red;
+    /*  这里和教程有点不同，这里是我自己处理的
+    **  教程是通过 :not选择器实现素数计算
+    **  但是的话其实只有把素数计数器放在li中
+    **  只要是合数该规则会被覆盖不会执行，所以prime-count不会自加
+    **  这样处理的更优雅（大雾
+    */
+    counter-increment: nature-count prime-count; /*nature-count 相当于变量名*/
+    list-style-type: none;
+    display: inline-block;
+}
+li:before{
+    content: counter(nature-count) ",";
+}
+
+/*
+**  这里感觉是处理的最不优雅的
+**  这里耦合太紧
+*/
+li:first-child,
+li:nth-child(2n+4),
+li:nth-child(3n+6),
+li:nth-child(5n+10),
+li:nth-child(7n+14),
+li:nth-child(11n+22),
+li:nth-child(13n+26),
+li:nth-child(17n+34),
+li:nth-child(19n+38),
+li:nth-child(23n+46),
+li:nth-child(29n+58),
+li:nth-child(31n+62)
+{
+    color: gray;
+    /*  这里必须设置nature-count和nonprime-count同时自加
+    **  因为这里和上面的li的权都是10
+    **  而这个在li的后面，发生覆盖
+    **  所以在自加nonprime-count的同时还要自加nature-count
+    */
+    counter-increment: nature-count nonprime-count;
+}
+
+/*
+**  去掉最后一个数字的逗号
+*/
+li:last-child::before{
+    content: counter(nature-count);
+}
+p{
+    position: absolute;
+    left: 40px;
+
+}
+
+p::before{
+    color: red;
+    font-size: 20px;
+    content: "前" counter(nature-count)   "个数字中有" counter(nonprime-count)  "个合数，" counter(prime-count) "个素数。";
+}
