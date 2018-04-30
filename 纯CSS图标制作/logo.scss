@@ -1,0 +1,127 @@
+@mixin box($size){
+  width: $size;
+  height: $size;
+}
+
+body{
+  >div{
+    width: 500px;
+    height: 100px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    border: 1px solid #dedede;
+
+    >p,div{
+      margin-left: 20px;
+    }
+  }
+}
+.parallelogram{
+  div{
+    @include box(50px);
+    background-color: pink;
+    transform: skew(-25deg);
+  }
+}
+.stop{
+  div{
+    @include box(50px);
+    color: pink;
+    border: 1px solid;
+    border-radius: 100%;
+    outline: 10px solid;
+    outline-offset: -26px;
+    //outline-offset: -35px;    //中间是加号
+    //transform: rotate(45deg); //加号再旋转就是个×
+    cursor: pointer;
+  }
+}
+
+.hamburger{
+  div{
+    width: 50px;
+    height: 0;
+    color: pink;
+    box-shadow: 36px 10px 0 3px,36px 0px 0px 3px,36px 20px 0px 3px;
+  }
+}
+.singlecheck{
+  div{
+    @include box(15px);
+    background-color: pink;
+    padding: 7px;
+    border: 3px solid pink;
+    border-radius: 100%;
+    background-clip: content-box;
+  }
+}
+.field{
+  div{
+    width: 0px;
+    color: pink;
+    border: 3px solid;
+    outline: 6px dashed;
+    outline-offset: 6px;
+    margin: 30px;
+  }
+}
+.arrow{
+  div{
+    width: 0;
+    color: pink;
+    border: 8px solid transparent;
+    border-top: 8px solid;
+    box-shadow: 0px -12px 0 -4px;
+
+  }
+}
+.bookmark{
+  div{
+    width: 0;
+    color: pink;
+    border: 8px solid;
+    border-bottom: 8px solid transparent;
+    box-shadow: 0px -12px 0 0;
+
+  }
+}
+.twocircle{
+  div{
+    @include box(50px);
+    border-radius: 100%;
+    background: linear-gradient(to right,pink 50%,orange 50%);
+  }
+}
+.disabled{
+  div{
+    @include box(20px);
+    border-radius: 100%;
+    border: 2px solid pink;
+    background: linear-gradient(to right,#fff 45%,pink 45%,pink 55% ,#fff 55%);
+    transform: rotate(40deg);
+  }
+}
+.twoarrow{
+  div{
+    @include box(0px);
+    border: 10px solid transparent;
+    border-left:10px solid pink;
+    -webkit-box-reflect: left 5px;
+  }
+}
+.trapezoidal{
+  div{
+    width: 50px;
+    border: 50px solid transparent;
+    border-bottom: 50px solid pink;
+    margin-top: -60px;
+  }
+}
+.olecranon{
+  div{
+    width: 35px;
+    border-top: 50px solid transparent;
+    border-right: 22px solid pink;
+    border-bottom-right-radius: 100%;
+  }
+}
