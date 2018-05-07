@@ -1,0 +1,88 @@
+@mixin box($height:150px,$width:200px){
+  height: $height;
+  width: $width;
+}
+
+body{
+  background:#343440;
+  color: white;
+  margin-bottom: 50px;
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+
+  >div{
+    margin-top: 20px;
+    >div{
+      background-color: white;
+    }
+  }
+
+  .harf-transparent{
+     >div{
+       @include box();
+       border: 10px solid hsla(0,0%,100%,.5);
+       background-clip: padding-box;
+     }
+  }
+  .muti-border{
+     >div{
+      @include box(100px,150px);
+       margin-bottom: 30px;
+       margin-left: 25px;
+    }
+    div:first-of-type{
+      box-shadow: 0 0 0 10px darkgrey,0 0 0 15px grey;
+    }
+    div:last-of-type{
+      border-radius: 10px;
+      outline: grey dashed 1px;
+      outline-offset: -20px;
+    }
+  }
+  .border-radius-inner{
+    >div{
+      @include box(120px,170px);
+      margin-top: 30px;
+      margin-left: 15px;
+      border-radius: 10px;
+      outline: grey 15px solid;
+      box-shadow: 0 0 0 4px grey;
+    }
+  }
+  .stripe{
+    >div{
+      @include box();
+    }
+    div:nth-of-type(1){
+      background: linear-gradient(white 25%,grey 0,grey 50%,white 0,white 75%,grey 0);
+    }
+    div:nth-of-type(2){
+      background: linear-gradient(to right,white 25%,grey 0,grey 50%,white 0,white 75%,grey 0);
+    }
+    div:nth-of-type(3){
+      background: repeating-linear-gradient(45deg,white 25%,grey 0,grey 50%,white 0,white 75%,grey 0);
+    }
+    div:nth-of-type(4){
+      background: grey;
+      background-image: repeating-linear-gradient(45deg,transparent 25%,hsla(0,0,1,.1) 0,hsla(0,0,1,.1) 50%,transparent 0,transparent 75%,hsla(0,0,1,.1) 0);
+    }
+  }
+  .complex{
+    >div{
+      @include box();
+    }
+    div:nth-of-type(1){
+      background: white;
+      background-image: linear-gradient(90deg,rgba(200,0,0,0.5) 50%,transparent 0),linear-gradient(rgba(200,0,0,0.5) 50%,transparent 0);
+      background-size: 30px;
+    }
+    div:nth-of-type(2){
+      background: white;
+      background-image: radial-gradient(rgba(200,0,0,0.5) 30%,transparent 0),radial-gradient(rgba(200,0,0,0.5) 30%,transparent 0);
+      background-size: 30px 30px;
+      background-position: 0 0 ,15px 15px ;
+    }
+  }
+}

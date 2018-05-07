@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景与边框</title>
+    <link type="text/css" rel="stylesheet" href="css/BackgroundAndBorder.css">
+</head>
+<body>
+    <div class="container">
+        <div class="harf-transparent">
+            <h4>1. 半透明边框</h4>
+            <!--背景会延伸到边框的区域下层，当背景为白色，边框为半透明的白色,背景色白色就会投过边框导致得到的效果和纯白色边框一样,所以可以用背景剪裁,裁去背景在边框的部分,即设置为padding-box-->
+            <div></div>
+        </div>
+        <div class="muti-border">
+            <h4>2. 多重边框</h4>
+            <h6>box-shadow方案</h6>
+            <!--box-shadow四个参数分别是x轴偏移距离，y轴偏移距离，模糊距离，阴影尺寸。-->
+            <!--注意box-shadow是层层叠加的，所以后一层想要看到效果一定大于前面的阴影尺寸-->
+            <div></div>
+            <h6>outline方案</h6>
+            <!--描边可以设置和边框的距离，设置为负值以及虚线就可以制作简单的缝边效果-->
+            <div></div>
+        </div>
+        <div class="border-radius-inner">
+            <h4>边框内圆角</h4>
+            <!--基本实现就是边框圆角之后加描边，中间会出现缝隙就用box-shadow填充，并且可以发现描边的z轴坐标高于阴影（废话-->
+            <div></div>
+        </div>
+        <div class="stripe">
+            <h4>条纹背景</h4>
+            <!--条纹背景主要运用的渐变，当两个颜色都在一个点造成分界，同色系条纹可以把背景色设置为深色，然后条纹叠加半透明白色条纹-->
+            <h6>水平条纹</h6>
+            <div></div>
+            <h6>垂直条纹</h6>
+            <div></div>
+            <h6>斜向条纹</h6>
+            <div></div>
+            <h6>同色系条纹</h6>
+            <div></div>
+        </div>
+        <div class="complex">
+            <h4>复杂的背景图案</h4>
+            <h6>网格</h6>
+            <!--同时设置横向和纵向的背景渐变,写出和四格的之后，设置一下background-size就可以重复了-->
+            <div></div>
+            <h6>波点</h6>
+            <!--径向渐变+设置background-size，记得调一下背景位置-->
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>
