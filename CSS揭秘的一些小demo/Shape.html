@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>形状</title>
+    <link rel="stylesheet" type="text/css" href="css/Shape.css">
+</head>
+<body>
+    <div class="container">
+        <div class="oval">
+            <h4>自适应的椭圆</h4>
+            <h6>椭圆</h6>
+            <div></div>
+            <!--<h6>半椭圆</h6>-->
+            <!--<div></div>-->
+            <h6>四分之一</h6>
+            <div></div>
+        </div>
+        <div class="parallelogram">
+            <h4>平行四边形</h4>
+            <!--如果里面不存在文字是可以直接倾斜的，但是里面存在文字的话那么文字就会跟着倾斜，所以可以直接写文字然后在添加一个平行四边形的伪元素在背后-->
+            <div>Click</div>
+        </div>
+        <div class="diamond">
+            <h4>菱形</h4>
+            <div></div>
+        </div>
+        <div class="cutarro">
+            <h4>切角效果</h4>
+            <h6>渐变方案</h6>
+            <div></div>
+            <!--双切角的话注意要设置不重复，不然repeat一下就会被覆盖，而且size刚好设置50%会有点黑边，我就设置大了一点点进行覆盖-->
+            <div></div>
+            <h6>弧形方案</h6>
+            <!--和上面其实一样的只不过是把渐变换成径向渐变-->
+            <div></div>
+            <h6>路径剪裁</h6>
+            <!--路径剪裁是真的好用，就是有点麻烦orz-->
+            <div></div>
+        </div>
+        <div class="trapezoidal">
+            <h4>梯形</h4>
+            <!--直角梯形只要把transform-origin设置了bottom left/right 就行-->
+            <div>HAHA</div>
+        </div>
+        <div class="chart">
+            <h4>简单的饼图</h4>
+            <h6>基于transform的解决方案</h6>
+            <!--终于找到为什么不能如丝般顺滑的原因是。。是最开始的写的旋转忘记注释了，然后它每次还得回到那个角度就会跳一下-->
+            <div></div>
+            <h6>基于SVG的解决方案</h6>
+            <!--这个方法比较重要的就是对于stroke的几个属性的理解-->
+            <div>
+                <svg>
+                    <circle r="30" cx="60" cy="60" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
