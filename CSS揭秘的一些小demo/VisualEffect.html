@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视觉效果</title>
+    <link type="text/css" rel="stylesheet" href="css/VisualEffect.css">
+</head>
+<body>
+    <div class="container">
+        <div class="oneside">
+            <h4>单侧投影</h4>
+            <h6>单侧投影</h6>
+            <!--当扩张半径和模糊半径绝对值相等的时候，那么投影尺寸和图形的尺寸完全一致。除非用偏移量来移动它们，不然我们将看不到任何阴影-->
+            <div></div>
+            <h6>邻边投影</h6>
+            <!--扩张半径大于等于投影尺寸的一半-->
+            <div></div>
+            <h6>双侧投影</h6>
+            <!--双侧投影用两次-->
+            <div></div>
+        </div>
+        <div class="unragular">
+            <h4>不规则投影</h4>
+            <!--想要根据填充的东西投影可以使用filter:drop-shadow，任何非透明的部分都会被打上投影，所以要注意到一件事，如果给背景设置了颜色那么背景就不会将里面的东西投影-->
+            <div></div>
+        </div>
+        <div class="dyeing">
+            <h4>染色效果</h4>
+            <!--总之就是各种调饱和度...-->
+            <h6>基于滤镜的解决方案</h6>
+            <div></div>
+            <h6>基于混合模式的解决方案1</h6>
+            <!--混合模式控制了上层元素的颜色与下层颜色进行混合的方式，需要用到luminosity，这种混合模式会保留上层元素的HSL亮度信息，并从它的下层吸取色相和饱和度信息
+            其中有两种模式：
+            - mix-blend-mode:需要将图片包裹在一个容器中，并把容器背景色设置为我们需要的主色调
+            -->
+            <div>
+                <a>
+                    <img src="./images/0b7b02087bf40ad16c2dfca95f2c11dfa8ecceaa.jpg">
+                </a>
+            </div>
+            <h6>基于混合模式的解决方案2</h6>
+            <!-- - background-blend-mode:不要图片元素，而是用div容器把第一层背景设置为想要的图片，第二层背景设置为想要的主色调-->
+            <div></div>
+        </div>
+        <div class="frostedglass">
+            <h4>毛玻璃效果</h4>
+            <!--摸了-->
+            <div>
+                <p>圣奈赛高</p>
+            </div>
+        </div>
+        <div class="corner">
+            <h4>折角效果</h4>
+            <h6>45°折角的解决方案</h6>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

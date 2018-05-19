@@ -1,0 +1,101 @@
+@mixin box($height:150px,$width:200px){
+  height: $height;
+  width: $width;
+}
+@font-face {
+  font-family: TestFamily;
+  src: local("Cooper Black");
+  unicode-range: U+26;
+}
+body{
+  //color: white;
+  margin-bottom: 50px;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+
+  >div{
+    margin-top: 20px;
+    >div{
+      background-color: yellowgreen;
+    }
+  }
+  .hyphen{
+    >div{
+      @include box(150px,275px);
+      hyphens: auto;
+      //-webkit-hyphens: auto;
+    }
+  }
+  .insertnewline{
+    >div{
+      @include box();
+    }
+    dd,dt{
+      display: inline;
+    }
+    dd{
+      margin: 0;
+      font-weight: bold;
+    }
+    dd:not(:last-child)::after{
+      content: "\A";
+      white-space: pre;
+    }
+  }
+  .textzebra{
+    >div{
+      width: 340px;
+    }
+    p{
+      padding: .3em;
+      line-height: 1.5;
+      background:linear-gradient(white 50%,transparent 0);
+      background-size: auto 3em;
+      background-origin: content-box;
+    }
+  }
+  .ligatures{
+    width: 340px;
+    div{
+      font-family: TestFamily ,serif ;
+    }
+  }
+  .underline{
+    div{
+      @include box();
+      line-height: 1.5em;
+      padding: 0.5em;
+    }
+    div:nth-of-type(1){
+      background: hsl(210,13%,60%);
+      color: hsl(210,13%,30%);
+      text-shadow: 0 0.03em 0.03em hsla(0,0%,100%,0.8);
+    }
+    div:nth-of-type(2){
+      color: white;
+      font-size: 96px;
+      text-shadow: 0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black;
+    }
+    div:nth-of-type(3){
+      background: #203;
+      color: #ffc;
+      font-size: 96px;
+      text-shadow: 0 0 .1em,0 0 .1em;
+    }
+  }
+  .circle{
+    >div{
+      background: transparent;
+      @include box(200px);
+      svg{
+        overflow: visible;
+        path{
+          fill: none;
+        }
+      }
+    }
+  }
+}

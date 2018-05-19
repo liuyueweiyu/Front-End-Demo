@@ -1,0 +1,69 @@
+@font-face {
+  font-family: TestFamily;
+  src: local("Cooper Black");
+  unicode-range: U+26; }
+body {
+  margin-bottom: 50px; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+  .container > div {
+    margin-top: 20px; }
+    .container > div > div {
+      background-color: yellowgreen; }
+  .container .hyphen > div {
+    height: 150px;
+    width: 275px;
+    hyphens: auto; }
+  .container .insertnewline > div {
+    height: 150px;
+    width: 200px; }
+  .container .insertnewline dd, .container .insertnewline dt {
+    display: inline; }
+  .container .insertnewline dd {
+    margin: 0;
+    font-weight: bold; }
+  .container .insertnewline dd:not(:last-child)::after {
+    content: "\A";
+    white-space: pre; }
+  .container .textzebra > div {
+    width: 340px; }
+  .container .textzebra p {
+    padding: .3em;
+    line-height: 1.5;
+    background: linear-gradient(white 50%, transparent 0);
+    background-size: auto 3em;
+    background-origin: content-box; }
+  .container .ligatures {
+    width: 340px; }
+    .container .ligatures div {
+      font-family: TestFamily, serif; }
+  .container .underline div {
+    height: 150px;
+    width: 200px;
+    line-height: 1.5em;
+    padding: 0.5em; }
+  .container .underline div:nth-of-type(1) {
+    background: #8c99a6;
+    color: #434d56;
+    text-shadow: 0 0.03em 0.03em rgba(255, 255, 255, 0.8); }
+  .container .underline div:nth-of-type(2) {
+    color: white;
+    font-size: 96px;
+    text-shadow: 0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black,0 0 1px black; }
+  .container .underline div:nth-of-type(3) {
+    background: #203;
+    color: #ffc;
+    font-size: 96px;
+    text-shadow: 0 0 .1em,0 0 .1em; }
+  .container .circle > div {
+    background: transparent;
+    height: 200px;
+    width: 200px; }
+    .container .circle > div svg {
+      overflow: visible; }
+      .container .circle > div svg path {
+        fill: none; }
+
+/*# sourceMappingURL=Font.css.map */

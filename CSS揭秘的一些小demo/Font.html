@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Font</title>
+    <link rel="stylesheet" type="text/css" href="css/Font.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hyphen">
+            <h4>连字符换行</h4>
+            <!--哦，浏览器不支持-->
+            <div>The only way to get rid of a temptation is to yield to it.</div>
+        </div>
+        <div class="insertnewline">
+            <h4>插入换行</h4>
+            <!--插入换行用伪元素，但是单纯的插入换行会发生空白合并，换行也会被合并，所以需要插入white-space:pre;最后不要忘了让最后一个不加入换行-->
+            <div>
+                <dl>
+                    <dt>Name</dt>
+                    <dd>Lea Verou</dd>
+
+                    <dt>Name</dt>
+                    <dd>Lea Verou</dd>
+
+                    <dt>Name</dt>
+                    <dd>Lea Verou</dd>
+                </dl>
+            </div>
+
+        </div>
+        <div class="textzebra">
+            <h4>文本行的斑马条纹</h4>
+            <!--就是设置背景渐变，并且把宽度设置line-hight相等的值，然后因为padding设置了值所以记得设置一下背景的起点-->
+            <div>
+                <p>while(true){<br/>
+                        var d = new Date();<br/>
+                        if(d.getDate()==1 && d.getMonth()==3){<br/>
+                    alter("ggg");<br/>
+                        }<br/>
+                    }</p>
+            </div>
+        </div>
+        <div class="ligatures">
+            <h4>华丽的&符号</h4>
+            <!--font-face要放在全局！！！实现原理就是先创建一个字体然后给这个字体设置Unicode-range-->
+            <div>HTML & CSS</div>
+        </div>
+        <div class="underline">
+            <h4>现实中的文字效果</h4>
+            <h6>凸版印刷效果</h6>
+            <div>The only way to get rid of a temptation is to yield to it.</div>
+            <h6>空心字效果</h6>
+            <!--多加几个text-shadow-->
+            <div>CSS</div>
+            <h6>文字发光效果</h6>
+            <!--多加几个和字体颜色相同的text-shadow-->
+            <div>CSS</div>
+        </div>
+        <div class="circle">
+            <h4>环形文字</h4>
+            <div>
+                <svg viewBox="0 0 100 100">
+                    <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle"></path>
+                    <text><textPath xlink:href="#circle">The only way to get rid of a temptation is to yield to it</textPath></text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
