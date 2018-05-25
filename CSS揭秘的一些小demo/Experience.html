@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户体验</title>
+    <link rel="stylesheet" href="./css/Experience.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hitarea">
+            <h4>扩大可点击区域</h4>
+            <div></div>
+        </div>
+        <div class="checkbox">
+            <h4>自定义复选框</h4>
+            <!--隐藏checkbox，然后用label生成伪元素模拟复选框-->
+            <div>
+                <input type="checkbox" id="cbxbox">
+                <label for="cbxbox">Awesome!</label>
+            </div>
+        </div>
+        <div class="swichbutton">
+            <h4>开关式按钮</h4>
+            <!--方法同上-->
+            <div>
+                <input type="checkbox" id="swich">
+                <label for="swich"></label>
+            </div>
+        </div>
+        <div class="weakshadow">
+            <h4>阴影弱化背景</h4>
+            <h6>伪元素方案</h6>
+            <!--样式是这样写的，不过得把这些样式写在一个类里，然后通过js来增加减少类-->
+            <div></div>
+            <h6>box-shadow方案</h6>
+            <div></div>
+            <!--<h6>backrop方案</h6>-->
+            <!--<div><dialog open>sdf</dialog></div>-->
+        </div>
+        <div class="weakblurry">
+            <h4>通过模糊弱化背景</h4>
+            <!--filter滤镜：blur高斯模糊，contract对比度，brightness亮度-->
+            <main>Bacon Ipsum dolor sit amet...</main>
+        </div>
+        <div class="scrollplay">
+            <h4>滚动演示</h4>
+            <div>
+                <ul>
+                    <li>Ada Catlace</li>
+                    <li>Alan Purring</li>
+                    <li>Schrödingcat</li>
+                    <li>Tim Purrners-Lee</li>
+                    <li>WebKitty</li>
+                    <li>Json</li>
+                    <li>Void</li>
+                    <li>Neko</li>
+                    <li>NaN</li>
+                    <li>Cat5</li>
+                    <li>Vector</li>
+                </ul>
+            </div>
+        </div>
+        <div class="compared">
+            <h4>交互式的图片对比控件</h4>
+            <h6>resize方案</h6>
+            <!--两张图片一张在下面一张在下面，第一种用resize处理，第二种用js-->
+            <div class="image-slider">
+                <div class="resize">
+                    <img src="images/0b7b02087bf40ad16c2dfca95f2c11dfa8ecceaaa.jpg">
+                </div>
+                <img src="images/0b7b02087bf40ad16c2dfca95f2c11dfa8ecceaa.jpg">
+            </div>
+            <h6>范围输入控制方案</h6>
+            <div class="image-slider">
+                <div id="rangeoutput">
+                    <img src="images/0b7b02087bf40ad16c2dfca95f2c11dfa8ecceaaa.jpg">
+                </div>
+                <img src="images/0b7b02087bf40ad16c2dfca95f2c11dfa8ecceaa.jpg">
+                <input id="range" type="range">
+            </div>
+            <script type="text/javascript">
+                var range = document.getElementById("range");
+                range.oninput = function () {
+                    // console.log(this.value);
+                    document.getElementById("rangeoutput").style.width = this.value + "%";
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
