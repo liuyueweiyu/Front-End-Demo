@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构与布局</title>
+    <link type="text/css" rel="stylesheet" href="css/Struct.css">
+</head>
+<body>
+    <div class="container">
+        <div class="adaptive">
+            <h4>自适应的内部元素</h4>
+            <!--想让figure大小根据图片且水平居中，根据大小可以在width设置min-content-->
+            <div>
+                <figure>
+                    <img src="images/TIM截图20180525200530.jpg">
+                    <figcaption>The great Sir Adam Catalace was named after Countess Ada Lovelace,the first programer.hhhhhhhhh hhhhhhhhhh</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <!--精确控制表格列宽-->
+
+        <div class="bortherstyle">
+            <h4>根据兄弟元素的数量来设置样式(2~6)</h4>
+            <!--只有li的个数为2~6个li背景颜色才会体现，n+x表示选中大于等于x个数的列表，-n+x表示选中小于等于x个数的列表-->
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+            </ul>
+        </div>
+        <div class="fullbackground">
+            <h4>满幅的背景，定宽的内容</h4>
+            <!--前提定宽高！-->
+            <div>
+                AMAZING!
+            </div>
+        </div>
+        <div class="verticalcenter">
+            <h4>垂直居中</h4>
+            <h6>基于绝对定位的解决方案</h6>
+            <div>
+                <div></div>
+            </div>
+            <h6>基于视口单位的解决方案</h6>
+            <!--只适用于视口居中-->
+            <div>
+                <!--<div></div>-->
+            </div>
+            <h6>基于flexbox的解决方案</h6>
+            <div>
+                <div></div>
+            </div>
+        </div>
+        <div class="nearfooter">
+            <h4>紧贴底部的页脚</h4>
+            <!--flex布局实现-->
+        </div>
+    </div>
+    <!--<div class="test"></div>-->
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@mixin box($height:150px,$width:200px){
+  height: $height;
+  width: $width;
+}
+body{
+  //color: white;
+  margin-bottom: 50px;
+}
+
+@keyframes blink-smooth {
+  50% {color: transparent}
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+
+  //> div {
+  //  margin-top: 20px;
+  //  > div {
+  //    background-color: yellowgreen;
+  //  }
+  //}
+
+  div:nth-of-type(1){
+    color: #ffbb33;
+    //animation: .5s blink-smooth 6 steps(1);
+  }
+
+
+  div:nth-of-type(2){
+    h1{
+      color: #ffbb33;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: 3s typing steps(13),
+                  1s caret steps(1) infinite;
+      width: 13ch;
+      border-right: 2px solid #3d3d4a;
+    }
+  }
+}
+
+@keyframes typing {
+  0% { width: 0 }
+}
+@keyframes caret {
+  50% { border-color: transparent }
+}
