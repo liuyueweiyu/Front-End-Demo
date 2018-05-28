@@ -10,9 +10,9 @@ var fs = require("fs"),
 //console.log内部：它在指定的字符串之后加了"\n"之后，并将其写入stdout流中
 
 function read(path) {
+    // console.trace();
 	fs.readdir(path, (err,files)=>{
 	    console.log("");
-	    console.log(files);
 	    if(!files.length){
 	        console.log("there is no files");
 	    }
@@ -43,29 +43,37 @@ function read(path) {
 	        Promise.all(allpromise)
 	        .then(()=>{
 				return new Promise((resolve,reject)=>{
-			    stdout.write("\nplease enter your choice:");
-			    stdin.resume();
-			    stdin.setEncoding("utf-8");
-			    stdin.on("data",(data)=>{
-				    data = data.slice(0,data.length-2);
-					    if(!files[data] && data != files.length){
-					        stdout.write("\nplease enter your choice:");
-					    }
-					    else{
-					        stdin.pause();
-					        resolve(data-1);
-					    }
-				    });
-			    });
+					stdout.write("\nplease enter your choice:");
+					stdin.setEncoding("utf-8");
+					stdin.resume();
+					function dataListener(data){
+                        data = data.slice(0,data.length-1);
+
+                        if(!files[data] && data != files.length){
+                            stdout.write("\nplease enter your choice:");
+                        }
+                        else{
+                            stdin.pause();
+                            stdin.removeListener("data",dataListener);
+                            resolve(data-1);
+
+                        }
+					}
+					stdin.on("data",dataListener);
+				});
+
 	        })
 	        .then((value)=>{
+	        	console.log("a");
 			    if(stats[value].isDirectory()){
-			   		read(path + "/" + files[value]);
+			    	// read(path + "/" + files[value]);
+			   		return read(path + "/" + files[value]);
 			   	}
 			   	else{
 			   		fs.readFile(path + "/" + files[value],"utf-8",(err,data)=>{
 		    			console.log(data);
-		    			read(path);
+		    			return read(path);
+		    			// read(path);
 		    		});
 		    	}
 			});
