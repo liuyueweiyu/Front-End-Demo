@@ -1,0 +1,117 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+//1. web页面布局(topbar + main + footbar)
+//.container{
+//  min-height: 100vh;
+//  display: flex;
+//  flex-direction: column;
+//  header,footer{
+//    background-color: #ffbb33;
+//    height: 200px;
+//  }
+//  main{
+//    flex: 1;
+//    background-color: #2d374b;
+//  }
+//}
+//本例中主要应用了以下flex属性：
+//flex-direction:column 使整体布局从上到下排列
+//flex-grow:1, 应用于main，使得main自动填充剩余空间
+
+//2. 每行的项目数固定并自动换行的列表项
+//.container{
+//  display: flex;
+//  flex-wrap: wrap;
+//  div{
+//    height: 100px;
+//    flex-basis: 25%;
+//    background: #3d3d4a;
+//    box-sizing:content-box;
+//    border: 1px solid #ffbb33;
+//  }
+//}
+//本例中主要应用了以下flex属性：
+//flex:0 0 25%,相当于flex-basis:25%，使得每一个列表项的宽度占外层容器(本例中的ul元素)的25%，因此每行最多能够排开四个列表项。
+//flex-wrap:wrap,使得每行填满时会自动换行
+
+//3. 实现自动划分多余空间的列表项
+//.container{
+//  width: 1000px;
+//  margin: 0 auto;
+//  display: flex;
+//  flex-wrap: wrap;
+//  justify-content: space-between;
+//  //justify-content: space-around;
+//  //justify-content: space-evenly;
+//  div{
+//    background: #3d3d4a;
+//    width:220px;
+//    height:100px;
+//    //box-sizing:content-box;
+//    border: 1px solid #ffbb33;
+//  }
+//}
+//本例中主要应用了以下flex属性：
+//justify-content:space-between;使主轴方向的多余空间平均分配在两两item之间
+//可以尝试一下justify-content的其他关于space的属性
+
+
+//4.平均分配空间的栅格布局
+//.container{
+//  display: flex;
+//  div{
+//    width: 200px;
+//    height: 200px;
+//    background-color: #ffbb33;
+//    border: 2px solid #2d374b;
+//    flex: 1;
+//  }
+//}
+
+//本例中主要应用了以下flex属性：
+//flex:1 这里针对item应用了flex:1,相当于flex:1 1 0%,而之所以不管各个column元素内容的宽度为多大，都能均分到相等的空间，正式因为相当于在设置了flex-grow:1使得剩余空间按相等比例自动分配的同时又设置了flex-basis:0%,才使得整个空间都平均分配了
+
+//5.圣杯布局
+//.container{
+//  display: flex;
+//  height: 100vh;
+//  main{
+//    flex: 1;
+//    background-color: #ffbb33;
+//
+//  }
+//  aside{
+//    width: 100px;
+//  }
+//  nav{
+//    width: 100px;
+//    order: -1;
+//  }
+//}
+//应用的flex属性
+//对main用flex-grow:1,使得中间主元素空间自动扩充
+//对nav应用order:-1,使得order处于最左侧(html中main写在了最前，以利于优先加载主内容区)
+
+//6.元素水平垂直居中
+//.container{
+//  display: flex;
+//  width: 1000px;
+//  height: 500px;
+//  background-color: #2d374b;
+//
+//  justify-content: center;
+//  align-content: center;
+//  div{
+//    width: 100px;
+//    height: 100px;
+//    margin: auto;
+//    background-color: #ffbb33;
+//  }
+//}
+
+//应用的flex属性
+//justify-content:center;使item元素水平居中
+//align-items:center;使item元素垂直居中
+//但是得加：margin:auto 才生效
