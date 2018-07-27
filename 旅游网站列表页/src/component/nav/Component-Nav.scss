@@ -1,0 +1,27 @@
+$hieght:93px;
+.nav{
+    background: #333945;
+    height: $hieght;
+    h1{
+        display: inline-block;
+        margin-left: 180px;
+        color: white;
+        font-size: 48px;
+        line-height: $hieght;
+        position: relative;
+        &::after{
+            content: "";
+            display: inline-block;
+            background: url("./logo-1.png");
+            width: 53px;
+            height: 57px;
+            margin-left: 12px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-bottom: auto;
+            margin-top: auto;
+            // box-shadow:0 0 0 #333945;
+        }
+    }
+}
