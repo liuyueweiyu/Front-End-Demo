@@ -1,7 +1,7 @@
 let flag = true;
-let atom = [];
+let atom = [[],[],[],[]];
 const Speed = 1.5;
-// console.log(flag);
+const atomCount = 60;
 window.onload = function () {
     let Canvas = function (w, h) {
         this.width = w;
@@ -33,21 +33,19 @@ window.onload = function () {
     }
     let Atom = function () {};
     Atom.prototype = {
-        init: function (index) {
-            this.index = index;
+        init: function (q) {
             this.w = random(20,120);
             this.x = - this.w;
-            this.y = (index%4)*100;
-            this.space = random(10,50)
+            // this.y = (index%4)*100;
+            this.q = q;
+            this.y = q*100;
+            this.space = random(10,50);
             this.fill = Math.random() > 0.15 ;
         },
         draw: function (cxt) {
-            let tj = (flag && (this.index <= 3 || atom[this.index - 4].x >this.space))
-            || 
-            (!flag && ((this.index <= 3 && atom[this.index + 196].x >this.space )||(this.index> 3 &&atom[this.index - 4].x >this.space )));
-            // console.log(flag);
+            let index = atom[this.q].indexOf(this);
+            const tj = index == 0 || atom[this.q][index - 1].x > this.space;
             if(tj) {
-                
                 cxt.beginPath();
                 cxt.fillStyle = 'rgb(145,203,205)';
                 cxt.rect(this.x, this.y ,this.w,20);
@@ -55,35 +53,35 @@ window.onload = function () {
                 if(this.fill)
                     cxt.fill();
                 this.update(cxt);
-            }
+            }   
         },
         update: function (cxt) {
             if(this.x < curWinWidth){
                 this.x += Speed;
             }
             else {
-                if(flag && this.index == 3)
-                    flag = false;
-                this.init(this.index);
+                atom[this.q].splice(0,1);
+                this.init(this.q);
             }
+
         }
     }
-
-    
-    const atomCount = 200;
-    for (let i = 0; i < atomCount; i++) {
-        setTimeout(function () {
-            let oAtom = new Atom();
-            oAtom.init(i);
-            atom.push(oAtom);
-        }, 10 * i);
+    for(let j = 0;j<4;j++){
+        for (let i = 0; i < atomCount; i++) {
+                let oAtom = new Atom();
+                oAtom.init(j);
+                atom[j].push(oAtom);
+        }
     }
-
     (function move() {
         oGc.clearRect(0, 0, width, height);
-        for (let i = 0; i < atom.length; i++) {
-            atom[i].draw(oGc);
+        for(let j = 0;j<4;j++){
+            for (let i = 0; i < atom[j].length; i++) {
+                atom[j][i].draw(oGc);
+            }
         }
         requestAnimationFrame(move);
+        
     })();
+
 }
