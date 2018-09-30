@@ -28,5 +28,6 @@
 - 2018/07/27 旅游网站列表页
 - 2018/07/29 方块模拟的交通运行
 - 2018/07/30 修复方块模拟的交通运行BUG
-- 2018/09/27 react+redux实现TODO-List
+- 2018/09/27 react+redux实现TODO-List、
+- 2018/09/30 react和redux实现Counter计数器
 
